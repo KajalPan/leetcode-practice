@@ -1,4 +1,4 @@
-# Problems I've practiced based on Neetcode 150 in Python:
+# Problems I've practiced based on the Neetcode 150 in Python:
 ##Arrays and Hashing
 
 ###Easy
