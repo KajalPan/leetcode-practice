@@ -1,7 +1,7 @@
 # Problems I've practiced based on the Neetcode 150 in Python:
-##Arrays and Hashing
+## Arrays and Hashing
 
-###Easy
+### Easy
 
 Contains Duplicate
 Valid Anagram
