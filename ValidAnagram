@@ -1,0 +1,32 @@
+# MY SOLUTION: Accepted
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s) == sorted(t)
+
+# SOLUTION 1:
+# Use HashMaps: One for each string (s and t). Each letter is a key and its occurence is a value.
+# Then iterate through all keys in one of them (ex. s) and compare values with other (ex. t).
+# This is after comparing the lengths to make sure they're the same. Time: O(s+t) Space:(s+t).
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        countS, countT = {}, {}
+        for i in range(len(s)): #Since s and t the same size. The current keys are s[i] and t[i]
+            # get() will add 1 to curr_key's value if it's a key in the map, else returns 0
+            countS[s[i]] = 1 + countS.get(s[i], 0) # For s
+            countT[t[i]] = 1 + countT.get(t[i], 0) # For t
+        for compare_key in countS:
+            # Using get() to prevent error if key (aka, letter) in s doesn't exist in t.
+            if countS[compare_key] != countT.get(compare_key, 0): 
+                return False
+        return True
+# SOLUTION 1 in one line:
+# Counter() in Python is a HashMap data structure. Time: O(s+t) Space:O(s+t)
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+    
+# SOLUTION 2: 
+# Sort both strings and check if they're equal, which is what I did. 
+# Time: O(n^2) or O(nlogn) dep on algorithm used. Space: O(n) or O(1) dep on algorithm used. 

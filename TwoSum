@@ -1,0 +1,23 @@
+# My Solution: Accepted 
+# Time: O(n^2)
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if nums[i] + nums[j] == target and i!=j:
+                    return [i, j]
+                
+# SOLUTION: 
+# Looking for diff btwn target and curr_val to be the other value. See if the other value exists.
+# Stick to one pass instead of two w initially-empty HashMap to instantly check if value is there.
+# After visiting element and finding difference, map each value to index (val:index) onto HashMap.
+# Time: O(n) Space: O(n)
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        untilCurrMap = {} # value: index
+        for i, num in enumerate(nums):
+            diff = target - num
+            if diff in untilCurrMap:
+                return [untilCurrMap[diff], i] # Sol found
+            untilCurrMap[num] = i # Else update HashMap with value and index
+        return # Unnecessary since a solution is guaranteed
